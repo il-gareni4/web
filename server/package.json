@@ -1,0 +1,23 @@
+{
+  "name": "web-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "prod": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/il-gareni4/web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/il-gareni4/web/issues"
+  },
+  "homepage": "https://github.com/il-gareni4/web#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
