@@ -1,0 +1,15 @@
+import { genBool, genDate, genEnglishLetter, genNumber } from './base';
+
+function genAsteroidName() {
+    return genNumber(2021, 2024) + " " + genEnglishLetter() + genEnglishLetter();
+}
+
+export function genAsteroidCard() {
+    return {
+        name: genAsteroidName(),
+        date: genDate(new Date(2021, 1), new Date()),
+        distance: genNumber(1_000_000, 10_000_000),
+        size: genNumber(50, 2000),
+        isDangerous: genBool()
+    }
+}

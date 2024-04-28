@@ -1,0 +1,73 @@
+.card {
+    position: relative;
+    width: auto;
+    height: 200px;
+    overflow: hidden;
+
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+.card.regular {
+    background: linear-gradient(90deg, #CFF37D 0%, #7DE88C 100%);
+}
+
+.card.red {
+    background: linear-gradient(90deg, #FFB199 0%, #FF0844 100%);
+}
+
+.asteroidImage {
+    position: absolute;
+    width: 72px;
+    left: 125px;
+    top: 25px;
+}
+
+.content {
+    margin-left: 300px;
+}
+
+.contentName {
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 150%;
+    line-height: 150%;
+
+    text-decoration: underline;
+    color: #000000;
+}
+
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.action {
+    margin-left: 100px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.actionButton {
+    padding: 18px 24px;
+    border: none;
+    background: #186DD6;
+    border-radius: 24px;
+
+    color: #FFFFFF;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.actionButton:hover {
+    cursor: pointer;
+}
