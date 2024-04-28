@@ -1,28 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import './index.css';
-import App from './pages/App';
-import reportWebVitals from './reportWebVitals';
-import ToDestroy from './pages/ToDestroy';
-import Asteroid from './pages/Asteroid';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
+import App from "./pages/App";
+import reportWebVitals from "./reportWebVitals";
+import ToDestroy from "./pages/ToDestroy";
+import Asteroid from "./pages/Asteroid";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App /> 
+    element: <App />,
   },
   {
     path: "/to-destroy/",
-    element: <ToDestroy />
+    element: <ToDestroy />,
   },
   {
     path: "/asteroid/:id",
-    element: <Asteroid />
-  }
-])
+    element: <Asteroid />,
+  },
+]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <RouterProvider router={router} />

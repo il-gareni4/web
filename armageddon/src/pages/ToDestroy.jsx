@@ -1,7 +1,10 @@
 import React from 'react'
+import DefaultLayout from '../components/DefaultLayout'
 
 export default function ToDestroy() {
   return (
-    <div>ToDestroy</div>
+    <DefaultLayout>
+      <p>To Destroy</p>
+    </DefaultLayout>
   )
 }
