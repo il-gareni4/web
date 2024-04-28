@@ -1,0 +1,27 @@
+.titleAndLinks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links {
+  display: flex;
+  gap: 24px;
+}
+
+.links li {
+  list-style: none;
+}
+
+.links li a {
+  text-decoration: none;
+  color: black;
+}
+
+.links li a.active {
+  font-weight: bold;
+  cursor: default;
+}
+
+.links li a:hover:not(.active) {
+  text-decoration: underline;
+}

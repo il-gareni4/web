@@ -1,0 +1,20 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "description": "**Учебный** репозиторий",
+  "main": "script.js",
+  "scripts": {
+    "server:dev": "cd ./server/ && npm run dev",
+    "client:dev": "cd ./armageddon/ && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/il-gareni4/web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/il-gareni4/web/issues"
+  },
+  "homepage": "https://github.com/il-gareni4/web#readme"
+}

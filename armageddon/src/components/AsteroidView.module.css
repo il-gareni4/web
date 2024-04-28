@@ -1,0 +1,35 @@
+.settings {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0px;
+}
+
+.asteroidCards {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.distanceMode {
+    cursor: pointer;
+}
+
+.distanceMode:hover:not(.active) {
+    text-decoration: underline;
+}
+
+.distanceMode + .distanceMode {
+    margin-left: 0.33rem;
+}
+
+.distanceMode + .distanceMode::before {
+    font-weight: 400;
+    content: ",";
+    position: relative;
+    right: 0.33rem;
+}
+
+.distanceMode.active {
+    font-weight: bold;
+    cursor: text;
+}
