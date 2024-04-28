@@ -1,22 +1,11 @@
-import AsteroidCard from "../components/AsteroidCard";
+import AsteroidView from '../components/AsteroidView';
 import DefaultLayout from "../components/DefaultLayout";
-import { genAsteroidCard } from "../mock/AsteroidCard";
 import "./App.module.css";
 
 function App() {
-  const asteroids = [];
-  for (let i = 0; i < 10; i++) asteroids.push(genAsteroidCard());
-
-  return (
-    <DefaultLayout>
-      {asteroids.map((asteroid) =>
-        <AsteroidCard
-          key={asteroid.name}
-          {...asteroid}
-        />
-      )}
-    </DefaultLayout>
-  );
+  return <DefaultLayout>
+    <AsteroidView />
+  </DefaultLayout>;
 }
 
 export default App;

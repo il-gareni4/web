@@ -13,3 +13,9 @@ export function genAsteroidCard() {
         isDangerous: genBool()
     }
 }
+
+export function genMultipleAsteroidCards(count) {
+    const asteroids = [];
+    for (let i = 0; i < count; i++) asteroids.push(genAsteroidCard());
+    return asteroids;
+}
