@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./AsteroidView.module.css";
 import { genMultipleAsteroidCards } from "../mock/AsteroidCard";
 import AsteroidCard from "./AsteroidCard";
+import { extractAsteroidsData, getNearEarthObjects } from "../api/nasa";
+import { getApiKey } from "../api/utils";
 
 export default function AsteroidView() {
-  const [asteroids] = useState(genMultipleAsteroidCards(10));
+  const [asteroids, setAsteroids] = useState([]);
   const [showOnlyDangerous, setShowOnlyDangerous] = useState(false);
   const [distanceMode, setDistanceMode] = useState("km");
 
-  const distanceModes = { km: "километрах", lunar: "дистанциях до луны"};
+  const distanceModes = { km: "километрах", lunar: "дистанциях до луны" };
+
+  useEffect(() => {
+    getNearEarthObjects(getApiKey())
+      .then((res) => res.json())
+      .then(extractAsteroidsData)
+      .then(setAsteroids)
+      .catch((res) => {
+        console.log(res);
+        setAsteroids(genMultipleAsteroidCards(10));
+      });
+  }, []);
 
   return (
     <main>
@@ -40,7 +53,7 @@ export default function AsteroidView() {
         {asteroids
           .filter((asteroid) => (showOnlyDangerous ? asteroid.isDangerous : true))
           .map((asteroid) => (
-            <AsteroidCard key={asteroid.name} distanceMode={distanceMode} {...asteroid} />
+            <AsteroidCard key={asteroid.id} distanceMode={distanceMode} {...asteroid} />
           ))}
       </div>
     </main>

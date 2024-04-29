@@ -5,10 +5,15 @@ function genAsteroidName() {
 }
 
 export function genAsteroidCard() {
+    const name = genAsteroidName();
     return {
-        name: genAsteroidName(),
+        id: name,
+        name,
         date: genDate(new Date(2021, 1), new Date()),
-        distance: genNumber(1_000_000, 10_000_000),
+        distance: {
+            km: genNumber(1_000_000, 10_000_000),
+            lunar: genNumber(1_000, 10_000)
+        },
         size: genNumber(50, 2000),
         isDangerous: genBool()
     }

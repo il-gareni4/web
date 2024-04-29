@@ -10,7 +10,7 @@ export default function AsteroidCard({ name, date, distance, size, isDangerous, 
         <div className={styles.contentName}>{name}</div>
         <div className={styles.contentWrapper}>
           <div>{`Дата: ${date.toLocaleDateString()}`}</div>
-          <div>Расстояние: {distance} {distanceMode === "km" ? "км" : "расстояний до луны"}</div>
+          <div>Расстояние: {distance[distanceMode]} {distanceMode === "km" ? "км" : "расстояний до луны"}</div>
           <div>{`Размер: ${size} м`}</div>
         </div>
       </div>
