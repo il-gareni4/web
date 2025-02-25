@@ -4,9 +4,10 @@ import { genMultipleAsteroidCards } from "../mock/AsteroidCard";
 import AsteroidCard from "./AsteroidCard";
 import { extractAsteroidsData, getNearEarthObjects } from "../api/nasa";
 import { getApiKey } from "../api/utils";
+import { Asteroid } from "../../types/asteroid";
 
 export default function AsteroidView() {
-  const [asteroids, setAsteroids] = useState([]);
+  const [asteroids, setAsteroids] = useState<Asteroid[]>([]);
   const [showOnlyDangerous, setShowOnlyDangerous] = useState(false);
   const [distanceMode, setDistanceMode] = useState("km");
 
@@ -31,7 +32,7 @@ export default function AsteroidView() {
             type="checkbox"
             name="onlyDangerous"
             id="onlyDangerousCheckbox"
-            value={showOnlyDangerous}
+            checked={showOnlyDangerous}
             onChange={(ev) => setShowOnlyDangerous(ev.target.checked)}
           />
           <label htmlFor="onlyDangerousCheckbox">Показать только опасные</label>

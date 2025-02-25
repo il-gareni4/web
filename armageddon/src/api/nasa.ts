@@ -1,6 +1,8 @@
+import { Asteroid } from "../../types/asteroid";
+
 const NeoWsApiUrl = "https://api.nasa.gov/neo/rest/v1/feed";
 
-function formatDateForApi(date) {
+function formatDateForApi(date: Date): string {
   return (
     date.getFullYear().toString() +
     "-" +
@@ -11,10 +13,10 @@ function formatDateForApi(date) {
 }
 
 export function getNearEarthObjects(
-  apiKey = undefined,
-  startDate = undefined,
-  endDate = undefined
-) {
+  apiKey?: string,
+  startDate?: Date,
+  endDate?: Date
+): Promise<Response> {
   const searchParams = new URLSearchParams([["api_key", apiKey ? apiKey : "DEMO_KEY"]]);
   if (startDate) searchParams.append("start_date", formatDateForApi(startDate));
   if (endDate) searchParams.append("end_date", formatDateForApi(endDate));
@@ -22,11 +24,11 @@ export function getNearEarthObjects(
   return fetch(`${NeoWsApiUrl}?${searchParams}`, { method: "GET" });
 }
 
-export function extractAsteroidsData(apiResponse) {
+export function extractAsteroidsData(apiResponse: any): Asteroid[] {
   if (!apiResponse) return [];
 
-  const asteroids = [];
-  for (const dateGroup of Object.values(apiResponse.near_earth_objects)) {
+  const asteroids: Asteroid[] = [];
+  for (const dateGroup of Object.values(apiResponse.near_earth_objects as any[][])) {
     for (const item of dateGroup) {
       const approach_data = item.close_approach_data[0];
       asteroids.push({

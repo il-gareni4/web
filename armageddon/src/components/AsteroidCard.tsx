@@ -1,8 +1,19 @@
-import React from "react";
 import styles from "./AsteroidCard.module.css";
 import AsteroidSvg from "./svg/AsteroidSvg";
 
-export default function AsteroidCard({ name, date, distance, size, isDangerous, distanceMode }) {
+type AsteroidCardProps = {
+  name: string;
+  date: Date;
+  distance: {
+      km: number;
+      lunar: number;
+  },
+  size: number;
+  isDangerous: boolean;
+  distanceMode: string;
+}
+
+export default function AsteroidCard({ name, date, distance, size, isDangerous, distanceMode }: AsteroidCardProps) {
   return (
     <div className={`${styles.card} ${isDangerous ? styles.red : styles.regular}`}>
       <AsteroidSvg className={styles.asteroidImage} />

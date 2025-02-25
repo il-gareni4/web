@@ -1,10 +1,11 @@
+import { Asteroid } from '../../types/asteroid';
 import { genBool, genDate, genEnglishLetter, genNumber } from './base';
 
-function genAsteroidName() {
+function genAsteroidName(): string {
     return genNumber(2021, 2024) + " " + genEnglishLetter() + genEnglishLetter();
 }
 
-export function genAsteroidCard() {
+export function genAsteroidCard(): Asteroid {
     const name = genAsteroidName();
     return {
         id: name,
@@ -19,8 +20,8 @@ export function genAsteroidCard() {
     }
 }
 
-export function genMultipleAsteroidCards(count) {
-    const asteroids = [];
+export function genMultipleAsteroidCards(count: number): Asteroid[] {
+    const asteroids: Asteroid[] = [];
     for (let i = 0; i < count; i++) asteroids.push(genAsteroidCard());
     return asteroids;
 }
