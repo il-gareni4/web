@@ -52,9 +52,15 @@ export default function AsteroidView() {
       </div>
       <div className={styles.asteroidCards}>
         {asteroids
-          .filter((asteroid) => (showOnlyDangerous ? asteroid.isDangerous : true))
+          .filter((asteroid) =>
+            showOnlyDangerous ? asteroid.isDangerous : true
+          )
           .map((asteroid) => (
-            <AsteroidCard key={asteroid.id} distanceMode={distanceMode} {...asteroid} />
+            <AsteroidCard
+              key={asteroid.id}
+              distanceMode={distanceMode}
+              {...asteroid}
+            />
           ))}
       </div>
     </main>
